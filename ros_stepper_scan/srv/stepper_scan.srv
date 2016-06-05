@@ -1,0 +1,5 @@
+# A ROS service to tell a kinect2 and a stepper motor to acquire a model
+
+string model_name
+---
+bool done
