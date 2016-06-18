@@ -1,0 +1,7 @@
+<launch>
+
+  <node pkg="ros_stepper_scan" type="stepper_scan" name="stepper_scan" output="screen" cwd="node">
+    <rosparam command="load" file="$(find ros_stepper_scan)/config/settings.yaml" />
+  </node>
+
+</launch>
