@@ -46,11 +46,4 @@ void Kinect2Interface::snapshot(std::string obj_name, uint snapshot_num, double 
   file_name = obj_name + boost::to_string(snapshot_angle) + "-" + boost::to_string(snapshot_num);
 
   pcl::io::savePCDFileASCII(file_name + ".pcd", *p_pclKinect);
-  // if (g_snapshot_number > 0 && obj_name.compare(g_prev_obj_name) != 0)
-  //   g_snapshot_number = 0;
-  // else
-  // {
-  //   g_snapshot_number++;
-  //   g_prev_obj_name = obj_name;
-  // }
 }

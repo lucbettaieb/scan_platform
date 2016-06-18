@@ -1,0 +1,4 @@
+# Settings for ROS stepper scan
+
+# Acquisition settings
+increment_degrees: 15
