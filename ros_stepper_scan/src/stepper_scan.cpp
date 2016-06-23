@@ -33,7 +33,7 @@ int main(int argc, char** argv)
 {
   ros::init(argc, argv, "stepper_scan");
   ros::NodeHandle nh;
-  
+
   kinect.reset(new Kinect2Interface(nh));
 
   if (!nh.getParam("ros_stepper_scan/increment_degrees", g_increment_degrees))
@@ -44,10 +44,10 @@ int main(int argc, char** argv)
 
   g_increment_radians = angles::from_degrees(g_increment_radians);
 
-  
 
   ros::ServiceServer stepper_scan = nh.advertiseService("start_stepper_scan", scan);
   scan_increment_pub = nh.advertise<std_msgs::Float64>("scan_increment", 10);
+  scan_increment_pub.publish(g_increment_degrees);
 
   ros::spin();
 }
