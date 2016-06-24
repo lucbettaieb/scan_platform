@@ -10,7 +10,6 @@
 #include <angles/angles.h>
 #include <boost/shared_ptr.hpp>
 #include <std_msgs/Float64.h>
-
 #include "ros_stepper_scan/stepper_scan.h"
 
 ros::Publisher scan_increment_pub;
@@ -24,7 +23,7 @@ bool scan(ros_stepper_scan::stepper_scan::Request &request,
 {
   std_msgs::Float64 increment;
   increment.data = g_increment_degrees;
-  for (double ang = 0; ang < 2*M_PI; ang += g_increment_radians)
+  for (double ang = 0; ang < 360; ang += g_increment_degrees)
   {
     scan_increment_pub.publish(increment);
     for (size_t i = 0; i < g_n_snaps; i++)
