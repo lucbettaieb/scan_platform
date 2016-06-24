@@ -22,9 +22,11 @@ int g_n_snaps;
 bool scan(ros_stepper_scan::stepper_scan::Request &request,
           ros_stepper_scan::stepper_scan::Response &response)
 {
+  std_msgs::Float64 increment;
+  increment.data = g_increment_degrees;
   for (double ang = 0; ang < 2*M_PI; ang += g_increment_radians)
   {
-    scan_increment_pub.publish(g_increment_degrees);
+    scan_increment_pub.publish(increment);
     for (size_t i = 0; i < g_n_snaps; i++)
       kinect->snapshot(request.model_name, i, ang);
   }
